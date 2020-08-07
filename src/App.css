@@ -1,3 +1,43 @@
+body {
+  background-color: aliceblue;
+}
+
+body p {
+  font-family: fantasy;
+  color: blueviolet;
+  font-size:1.5rem;
+  text-decoration: none;
+  text-align: center;
+}  
+
+body ul li {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.cardCatalogue {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.bookCard {
+  width: 300px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.bookCard ul {
+  margin: 0;
+  padding: 0;
+}
+
+.bookCard img {
+  width: 100%;
+  height: 500px;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +75,5 @@
   to {
     transform: rotate(360deg);
   }
+
 }
