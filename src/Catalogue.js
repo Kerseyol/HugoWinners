@@ -3,6 +3,8 @@ import firebase from './firebase';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from 'axios';
+import App from './App';
+import BookDetails from './BookDetails';
 // import BookSearcher from './BookSearcher.js';
 
 
@@ -33,7 +35,7 @@ class Catalogue extends Component{
       this.setState({
           winners: newState
         }) 
-        console.log(newState);
+        console.log(this.props)
     })
       };
       
@@ -49,13 +51,13 @@ class Catalogue extends Component{
                         <ul>
                           <li>
                             <Link to={`/book/${winner[0]}`}>
-                              <img src={winner[2]} alt={`Book cover for ${winner[0]}`}></img>
+                              <img src={winner[2]} alt={`Book cover for ${winner[0]} by ${winner[1]}}`}></img>
                               <p>{winner[0]}</p> 
                               <p>{winner[1]}</p>
                             </Link>
                           </li>
                         </ul>
-                    <p>{winner[3]}</p>
+                    {/* <p>{winner[3]}</p> */}
                       </div>
                     )
                   })}

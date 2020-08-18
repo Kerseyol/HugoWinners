@@ -38,6 +38,15 @@ body ul li {
   height: 500px;
 }
 
+.largeCover {
+  width: 100%;
+}
+
+.description img {
+  width: 30%;
+  height: auto;
+}
+
 .App {
   text-align: center;
 }

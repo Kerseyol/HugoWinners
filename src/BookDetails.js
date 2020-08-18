@@ -2,74 +2,68 @@ import React, { Component } from 'react';
 import firebase from './firebase';
 import App from './App';
 import './App.css';
+import Catalogue from './Catalogue';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class BookDetails extends Component {
     constructor() {
         super();
         this.state = {
-            selection: {},
+            selection: [],
             winner: []
         }
     }
 
     
-  componentDidMount() {
-
+    componentDidMount() {
+        console.log("why is this not working?")
+        console.log(this.props.match.params.winnerID)
+        
     const dbRef = firebase.database().ref();
     dbRef.on('value', (response) => {
 
-      const newState = [];
+      const newState = this.props.match.params.winnerID;
 
       const winner = [];
-
+      
+      const winners = [];
+      
       const data = response.val();
-
+      
       for (let key in data) {
-
-        newState.push(data[key]);
-
-      };
-
-      this.setState({
-        winner: newState
-      })
+          
+          winners.push(data[key]);
+          
+        }
+        console.log(data)
+        // const selection = winners.find(element[{}]);
 
     });
-};
 
-    render() {
-        // console.log(winner);
+    // const selection = winners.find(Element => {this.props.match.params.winnerID})
+    // console.log(selection)
+}
+
+render() {
+        console.log(this.props);
         return (
             <div>
-                {this.state.winner.map((winner) => {
-                    return (
-                        <div key={winner} className="bookCard">
-                            <ul>
-                            <li>
-                                <Link to={`/book/${winner[0]}`}>
-                                <img src={winner[2]} alt={`Book cover for ${winner[0]}`}></img>
-                                <p>{winner[0]}</p> 
-                                <p>{winner[1]}</p>
-                                </Link>
-                            </li>
-                            </ul>
-                            <p>{winner[3]}</p>
-                            
-                            <div className="largeCover">
-                                <div className="description">
-                                    <h1>{this.state.winner[0]}</h1>
-                                    <h2>{this.state.winner[1]}</h2>
-                                    <p>{this.state.selection[0]}</p>
-                                </div>
-                                <div className="image">
-                                    <img src={winner[2]} />
-                                </div>
-                            </div>
+                <div>
+                    <div className="largeCover">
+                        <div className="description">
+                            <h1>Hello</h1>
+                            {/* <h1>{winner[0]}</h1> */}
+                            {/* <h2>by {winner[1]}</h2> */}
                         </div>
-                        );
-                        })
-                    }
+
+                        <div className="image">
+                            {/* <img src={winner[2]} alt={`${winner[0]} by ${winner[1]}`}/> */}
+                        </div>
+                    </div>
+                </div>
+                );
+                )
+                )
             </div>
         )
     }

@@ -17,9 +17,10 @@ class App extends Component{
                 <h1>Hugo Winners Book List</h1>
               </header>
              <Route exact path="/" component={Catalogue}/>
-             <Route exact path="/book/:bookID" component={BookDetails}/> 
+             <Route exact path="/book/:winnerID" component={BookDetails}/> 
              </div>
           </Router>
+          
   );
   }
 }
